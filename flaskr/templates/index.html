@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{%block content%}
+<div class="mx-auto text-center">
+ <h1>This is a barplot</h1>
+ <img src="data:image/gif;base64,{{ picture['bar'] }}"/>
+ <h1>This is a heatmap</h1>
+ <img src="data:image/gif;base64,{{ picture['heat'] }}"/>
+</div>
+{%endblock%}
