@@ -8,8 +8,8 @@ from .models import Insurance
 
 main = Blueprint('main', __name__)
 
-data = pd.read_csv('flaskr/tables/flight_delays.csv',index_col='Month')
-data_2 = pd.read_csv('flaskr/tables/insurance.csv')
+data = pd.read_csv('flaskr/static/flight_delays.csv',index_col='Month')
+data_2 = pd.read_csv('flaskr/static/insurance.csv')
 
 @main.route('/')
 def index():
@@ -24,8 +24,8 @@ def pyt():
     picture['bar'] = graph_bar(data, column)
     picture['heat'] = graph_heat(data)
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
-    s = Insurance.query.first()
-    print(s.__dict__)
+    #s = Insurance.query.first()
+    #print(s.__dict__)
     #picture = graph()
     #print('this is bytes', picture)
     return render_template('sns.html', picture = picture, column=column, names=names, table=table)
