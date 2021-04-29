@@ -9,22 +9,32 @@
 
 {%block content%}
 <div class="mx-auto text-center">
-  <h1>This is a barplot</h1>
-  <p>The plot is made on the server side each time page is loaded. This is made to show the seaborn functionality</p>
-  <img id='barplot' src="data:image/gif;base64,{{ picture['bar'] }}"/>
-  <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Choose different column in dataframe
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-  {%for i in names%}
-  <li><a class="dropdown-item picsw" id="{{i}}">{{i}}</a></li>
-  {%endfor%}
-  </ul>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Hello, world!</h1>
+      <p>This is a simple flask webapp to demonstrate my plotting skills. I can do plots with python or R. Plots in python made on fly in the backend as you load the corresponding page. Plots in R are premade, saved to pics and loaded from server.</p>
+    </div>
   </div>
-  <h1>This is a heatmap</h1>
-  <img src="data:image/gif;base64,{{ picture['heat'] }}"/>
-  <h1>This is a heatmap</h1>
-  <img src="data:image/gif;base64,{{ picture['scat'] }}"/>
+  <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Python</h2>
+            <p>This section contains infographics made on the server side with seaborn python package</p>
+            <p><a class="btn btn-secondary" href="{{url_for('main.pyt')}}" role="button">View »</a></p>
+          </div>
+          <div class="col-md-6">
+            <h2>R</h2>
+            <p>This section contains infographics made in R</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View »</a></p>
+          </div>
+        </div>
+
+        <hr>
+
   </div>
+</div>
+<footer class="container">
+    <p>© Kirill Politov 2021</p>
+</footer>
 {%endblock%}
