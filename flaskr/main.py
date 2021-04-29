@@ -30,6 +30,10 @@ def pyt():
     #print('this is bytes', picture)
     return render_template('sns.html', picture = picture, column=column, names=names, table=table)
 
+@main.route('/r')
+def r():
+    return render_template('r.html')
+
 
 @main.route('/getbar')
 def bar():
