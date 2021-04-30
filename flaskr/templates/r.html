@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{%block head%}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{%endblock%}
+
+{%block content%}
+<div class="mx-auto mb-4 text-center">
+  <h1>This is a barplot</h1>
+  <p>The plot is made on the server side each time page is loaded. This is made to show the seaborn functionality</p>
+  <img class='py-2 img-fluid' id='scatter' src="{{url_for('static',filename='scatter.png')}}"/>
+</div>
+{%endblock%}

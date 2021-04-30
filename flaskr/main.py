@@ -8,8 +8,8 @@ from .models import Insurance
 
 main = Blueprint('main', __name__)
 
-data = pd.read_csv('flaskr/static/flight_delays.csv',index_col='Month')
-data_2 = pd.read_csv('flaskr/static/insurance.csv')
+data = pd.read_csv('/home/Farwander/mysite/graphics/flaskr/static/flight_delays.csv',index_col='Month')
+data_2 = pd.read_csv('/home/Farwander/mysite/graphics/flaskr/static/insurance.csv')
 
 @main.route('/')
 def index():
