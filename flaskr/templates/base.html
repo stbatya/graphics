@@ -12,7 +12,7 @@
     {% endblock %}
   </head>
 
-  <body class="pt-5">
+  <body>
     <header>
         <nav class="navbar navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
@@ -37,10 +37,11 @@
         </div>
       </nav>
     </header>
-
-    <div class="container h-100">
+    <main>
+    <div class="container py-5 h-100">
       {% block content %}
       {% endblock %}
     </div>
+    </main>
 
   </body>
