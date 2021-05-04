@@ -19,7 +19,29 @@
 
   <body>
     <header>
+      <a class="nav collapsed" data-bs-toggle="collapse" data-bs-target="#navbars" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation"></a>
+      <nav class="navbar navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{url_for('main.index')}}">Kirill</a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbars" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
+          <div class="navbar-collapse collapse" id="navbars" style="">
+            <ul class="navbar-nav me-auto mb-2">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url_for('main.index')}}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('main.pyt')}}">Python</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('main.r')}}">R</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <div class="container mt-5 h-100">
