@@ -14,7 +14,7 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY='Kirill',
         SQLALCHEMY_DATABASE_URI = "mysql://{username}:{password}@{hostname}/{databasename}".format(
-        username="Farwander",
+        username="",
         password="admin1234",
         hostname="Farwander.mysql.pythonanywhere-services.com",
         databasename="Farwander$graph_app",
