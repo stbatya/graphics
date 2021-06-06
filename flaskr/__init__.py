@@ -13,11 +13,11 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='Kirill',
-        SQLALCHEMY_DATABASE_URI = "mysql://{username}:{password}@{hostname}/{databasename}".format(
-        username="",
+        SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{username}:{password}@{hostname}/{database}".format(
+        username="root",
         password="admin1234",
-        hostname="Farwander.mysql.pythonanywhere-services.com",
-        databasename="Farwander$graph_app",
+        hostname="0.0.0.0:3306",
+        database="flask_app"
 )
     )
 
