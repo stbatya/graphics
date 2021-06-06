@@ -6,7 +6,7 @@ __pycache__/
 instance/
 
 
-/docker-compose.yml
+docker-compose.yml
 
 .pytest_cache/
 .coverage
