@@ -1,8 +1,6 @@
 import os
 from flask import Flask
-#from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
-#from flaskr import db
 import pandas as pd
 
 """app initialisation module"""
@@ -13,11 +11,10 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='Kirill',
-        SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{username}:{password}@{hostname}/{database}".format(
+        SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{username}:{password}@{hostname}/flaskapp".format(
         username="root",
         password="admin1234",
-        hostname="0.0.0.0:3306",
-        database="flask_app"
+        hostname="mysqldb"
 )
     )
 
@@ -29,10 +26,6 @@ def create_app(test_config=None):
 
 
     from .models import Insurance
-
-#    @login_manager.user_loader
-#    def load_user(user_id):
-#        return User.query.get(int(user_id))
 
 
     # ensure the instance folder exists

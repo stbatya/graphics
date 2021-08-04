@@ -24,10 +24,8 @@ def pyt():
     picture['bar'] = graph_bar(data, column)
     picture['heat'] = graph_heat(data)
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
-    #s = Insurance.query.first()
-    #print(s.__dict__)
-    #picture = graph()
-    #print('this is bytes', picture)
+    s = db.session.query(Insurance).filter_by(id=1).all()
+    print(s[0])
     return render_template('sns.html', picture = picture, column=column, names=names, table=table)
 
 @main.route('/r')
@@ -37,13 +35,10 @@ def r():
 
 @main.route('/getbar')
 def bar():
-    #print('hello')
     col = request.args.get('col',0)
-    #print(col)
     if col !=0:
         b = graph_bar(data, col)
     else:
         b = 0
-    #print(b)
     resp = {'picture': b}
     return jsonify(resp)
