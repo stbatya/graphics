@@ -5,6 +5,9 @@ __pycache__/
 
 instance/
 
+
+docker-compose.yml
+
 .pytest_cache/
 .coverage
 htmlcov/

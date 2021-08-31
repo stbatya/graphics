@@ -12,7 +12,7 @@ with app.app_context():
             print('Initialising the table in database.')
             engine = s.get_bind()
             df = pd.read_csv('flaskr/tables/insurance.csv')
-            df.to_sql('Insurance',
+            df.to_sql('insurance',
                       con=engine,
                       if_exists='append',
                       chunksize=1000,
