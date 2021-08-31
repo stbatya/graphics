@@ -2,9 +2,9 @@ from flask import Blueprint
 from flask import Flask
 from flask import render_template, request, jsonify
 from flaskr.graphics import graph_bar, graph_heat, graph_scat
-import pandas as pd
 from flaskr import db
 from .models import Insurance
+import pandas as pd
 
 main = Blueprint('main', __name__)
 
