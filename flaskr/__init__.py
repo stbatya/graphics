@@ -7,8 +7,11 @@ import pandas as pd
 
 db = SQLAlchemy()
 
+#app factory
 def create_app(test_config=None):
+    #define app
     app = Flask(__name__, instance_relative_config=True)
+    #app configuration
     app.config.from_mapping(
         SECRET_KEY='Kirill',
         SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{username}:{password}@{hostname}/flaskapp".format(
@@ -17,7 +20,6 @@ def create_app(test_config=None):
         hostname="mysqldb"
 )
     )
-
 
     if test_config is None:
         app.config.from_pyfile('config.py', silent=True)
@@ -34,8 +36,10 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    #register database
     db.init_app(app)
 
+    #import all blueprints
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
