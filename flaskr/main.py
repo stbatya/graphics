@@ -35,8 +35,10 @@ def pyt():
     #picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     #query table
     s = db.session.query(Insurance)
-    #query_dict = {name:column for (name,column) in column_lst}
-    data_2 = pd.DataFrame.from_records(s.all())
+    column_lst = [i for i in s.keys()]
+    query_dict = {name:[j[name] for j in s] for name in column_lst}
+    data_2 = pd.DataFrame.from_dict(query_dict)
+    #data_2 = pd.DataFrame.from_records(s.all())
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     return render_template('sns.html', picture = picture, column=column, names=names, table=table)
 
