@@ -37,7 +37,7 @@ def pyt():
     s = db.session.query(Insurance).filter_by(id=1)
     #column_lst = [i['name'] for i in s.column_descriptions]
     #query_dict = {name:column for (name,column) in column_lst}
-    data_2 = pd.Dataframe.from_records(s.all())
+    data_2 = pd.DataFrame.from_records(s.all())
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     return render_template('sns.html', picture = picture, column=column, names=names, table=table)
 
