@@ -37,8 +37,8 @@ def pyt():
     #picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     #query table
     s = Insurance.query.order_by(Insurance.id)
-    print(getattr(s.all()[0],Insurance.__table__.columns.keys()[0]))
-    lst = [i for i in s.all()]
+    column_lst = Insurance.__table__.columns.keys()
+    dict = {name:[getattr(i,name) for i in s.all()] for name in column_lst}
     print(lst)
     #data_2 = pd.DataFrame(lst)
     #data_2 = pd.DataFrame.from_records(s.all())
