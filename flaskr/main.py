@@ -34,9 +34,9 @@ def pyt():
     picture['heat'] = graph_heat(data)
     #picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     #query table
-    s = db.session.query(Insurance)
+    s = db.session.execute(select(Insurance))
     column_lst = [i['name'] for i in s.column_descriptions]
-    query_dict = {name:[j[name] for j in s.mappings()] for name in column_lst}
+    query_dict = {name:[j[] for j in s.mappings()] for name in column_lst}
     data_2 = pd.DataFrame.from_dict(query_dict)
     #data_2 = pd.DataFrame.from_records(s.all())
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
