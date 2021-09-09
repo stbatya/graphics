@@ -14,7 +14,7 @@ main = Blueprint('main', __name__)
 
 #read tables from csv files
 data = pd.read_csv('/home/Farwander/mysite/graphics/flaskr/static/flight_delays.csv',index_col='Month')
-#data_2 = pd.read_csv('flaskr/static/insurance.csv')
+data_2 = pd.read_csv('flaskr/static/insurance.csv')
 
 #main page route
 @main.route('/')
@@ -44,7 +44,7 @@ def pyt():
     #print(query_dict)
     #data_2 = pd.DataFrame.from_dict(query_dict)
     #data_2 = pd.DataFrame.from_records(s.all())
-    #picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
+    picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     return render_template('sns.html', picture = picture, column=column, names=names, table=table)
 
 #route for graphics made in R
