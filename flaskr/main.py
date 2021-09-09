@@ -34,14 +34,12 @@ def pyt():
     picture = {}
     picture['bar'] = graph_bar(data, column)
     picture['heat'] = graph_heat(data)
-    #picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     #query table
     s = Insurance.query.order_by(Insurance.id)
     column_lst = Insurance.__table__.columns.keys()
     dict = {name:[getattr(i,name) for i in s.all()] for name in column_lst}
     print(dict)
     data_2 = pd.DataFrame.from_dict(dict)
-    #data_2 = pd.DataFrame.from_records(s.all())
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     return render_template('sns.html', picture = picture, column=column, names=names, table=table)
 
