@@ -3,8 +3,10 @@ from flask import Flask
 from flask import render_template, request, jsonify
 from flaskr.graphics import graph_bar, graph_heat, graph_scat
 from flaskr import db
+from sqlalchemy import select
 from .models import Insurance
 import pandas as pd
+
 
 """main module with flask blueprints for routes"""
 
