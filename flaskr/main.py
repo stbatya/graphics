@@ -37,11 +37,10 @@ def pyt():
     #picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     #query table
     s = Insurance.query.order_by(Insurance.id)
-    print(s.all()[0])
-    lst = [i._asdict() for i in s.all()]
+    print(getattr(s.all()[0],Insurance.__table__.columns.keys()[0]))
+    lst = [i for i in s.all()]
     print(lst)
-    data_2 = pd.DataFrame(lst)
-    print(data_2)
+    #data_2 = pd.DataFrame(lst)
     #data_2 = pd.DataFrame.from_records(s.all())
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     return render_template('sns.html', picture = picture, column=column, names=names, table=table)
