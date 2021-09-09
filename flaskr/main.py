@@ -40,7 +40,7 @@ def pyt():
     column_lst = s.first()._mapping.keys()
     query_dict = {name:[j[name] for j in s.all()] for name in column_lst}
     print(column_lst)
-    print(query_dict[column_lst[0]])
+    print(query_dict)
     data_2 = pd.DataFrame.from_dict(query_dict)
     #data_2 = pd.DataFrame.from_records(s.all())
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
