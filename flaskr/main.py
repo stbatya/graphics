@@ -39,7 +39,7 @@ def pyt():
     s = Insurance.query.order_by(Insurance.id)
     column_lst = Insurance.__table__.columns.keys()
     dict = {name:[getattr(i,name) for i in s.all()] for name in column_lst}
-    print(lst)
+    print(dict)
     #data_2 = pd.DataFrame(lst)
     #data_2 = pd.DataFrame.from_records(s.all())
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
