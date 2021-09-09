@@ -38,7 +38,7 @@ def pyt():
     #query table
     s = db.session.execute(select(Insurance))
     lst = [i._asdict() for i in s.all()]
-    data_2 = pd.DataFrame.(lst)
+    data_2 = pd.DataFrame(lst)
     print(data_2)
     #data_2 = pd.DataFrame.from_records(s.all())
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
