@@ -36,7 +36,7 @@ def pyt():
     #query table
     s = db.session.query(Insurance)
     column_lst = [i['name'] for i in s.column_descriptions]
-    query_dict = {name:[j[column_lst.index(name)] for j in s.all()] for name in column_lst}
+    query_dict = {name:[j.get(name) for j in s.all()] for name in column_lst}
     data_2 = pd.DataFrame.from_dict(query_dict)
     #data_2 = pd.DataFrame.from_records(s.all())
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
