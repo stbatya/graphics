@@ -38,7 +38,7 @@ def pyt():
     #query table
     s = db.session.execute(select(Insurance))
     print(type(s))
-    print(type(s.all()[0])
+    print(type(s.all()[0]))
     #query_dict = {name:[j[name] for j in s.all()] for }
     #print(column_lst)
     #print(query_dict)
