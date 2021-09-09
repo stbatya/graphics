@@ -14,7 +14,7 @@ main = Blueprint('main', __name__)
 
 #read tables from csv files
 data = pd.read_csv('/home/Farwander/mysite/graphics/flaskr/static/flight_delays.csv',index_col='Month')
-data_2 = pd.read_csv('/home/Farwander/mysite/graphics/flaskr/static/insurance.csv')
+#data_2 = pd.read_csv('/home/Farwander/mysite/graphics/flaskr/static/insurance.csv')
 
 #main page route
 @main.route('/')
@@ -37,12 +37,9 @@ def pyt():
     #picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     #query table
     s = db.session.execute(select(Insurance))
-    print(type(s))
-    print(type(s.all()[0]))
-    #query_dict = {name:[j[name] for j in s.all()] for }
-    #print(column_lst)
-    #print(query_dict)
-    #data_2 = pd.DataFrame.from_dict(query_dict)
+    lst = [i._asdict() for i in s.all()]
+    data_2 = pd.DataFrame.(lst)
+    print(data_2)
     #data_2 = pd.DataFrame.from_records(s.all())
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     return render_template('sns.html', picture = picture, column=column, names=names, table=table)
