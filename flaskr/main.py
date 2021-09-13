@@ -14,6 +14,8 @@ main = Blueprint('main', __name__)
 
 #read tables from csv files
 data = pd.read_csv('/home/Farwander/mysite/graphics/flaskr/static/flight_delays.csv',index_col='Month')
+
+#following data is in sql database also. current version is using sql query to get this data.
 #data_2 = pd.read_csv('/home/Farwander/mysite/graphics/flaskr/static/insurance.csv')
 
 #main page route
@@ -36,10 +38,13 @@ def pyt():
     picture['heat'] = graph_heat(data)
     #query table
     s = Insurance.query.order_by(Insurance.id)
+    #get the list of column names
     column_lst = Insurance.__table__.columns.keys()
+    #comprehend a dict in a form column_name:column
     dict = {name:[getattr(i,name) for i in s.all()] for name in column_lst}
-    print(dict)
+    #transform dict to pandas dataframe
     data_2 = pd.DataFrame.from_dict(dict)
+    #
     picture['scat'] = graph_scat(data_2,'bmi','charges','smoker')
     return render_template('sns.html', picture = picture, column=column, names=names, table=table)
 
