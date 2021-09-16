@@ -5,8 +5,12 @@
 
 {%block content%}
 <div class="mx-auto mb-4 text-center">
+  <p>All plots are made in R, then saved to pngs and downloaded to page from server</p>
+  <h1>This is a barplot</h1>
+  <img class='py-2 img-fluid' id='scatter' src="{{url_for('static',filename='barplotR.png')}}"/>
+  <h1>This is a heatmap</h1>
+  <img class='py-2 img-fluid' id='scatter' src="{{url_for('static',filename='heatmapR.png')}}"/>
   <h1>This is a scatterplot</h1>
-  <p>The plot is premade in R</p>
-  <img class='py-2 img-fluid' id='scatter' src="{{url_for('static',filename='scatter.png')}}"/>
+  <img class='py-2 img-fluid' id='scatter' src="{{url_for('static',filename='scatterR.png')}}"/>
 </div>
 {%endblock%}
