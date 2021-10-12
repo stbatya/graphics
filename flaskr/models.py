@@ -1,6 +1,8 @@
+"""Module with ORM classes definitions for Insurance table"""
+
+
 from . import db
 
-"""module contains ORM classes definitions for Insurance table"""
 
 class Insurance(db.Model):
     id = db.Column(db.Integer, primary_key=True)
